@@ -4,11 +4,13 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
+  "type": "module",
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.2"
@@ -18,6 +20,8 @@
     "eslint": "^9.23.0",
     "eslint-plugin-jsdoc": "^50.6.9",
     "eslint-plugin-unicorn": "^58.0.0",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.3",
     "typescript-eslint": "^8.28.0"
   }
 }
