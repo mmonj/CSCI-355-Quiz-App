@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%- include("includes/common-imports") %>
+    <title>Quiz</title>
+</head>
+
+<body>
+
+  <main class="mw-70-rem mx-auto p-3">
+    <h1 class="text-center mb-3">Quiz</h1>
+    <ul class="list-group list-group-flush">
+      <% questions.forEach(question=> { %>
+        <li class="list-group-item">
+          <h6>
+            <%= question.question %>
+          </h6>
+          <div>
+            <input id="q<%=question.id%>-A" type="radio" name="<%=question.id%>" value="A">
+            <label for="q<%=question.id%>-A">
+              <%=question.A%>
+            </label>
+          </div>
+          <div>
+            <input id="q<%=question.id%>-B" type="radio" name="<%=question.id%>" value="B">
+            <label for="q<%=question.id%>-B">
+              <%=question.B%>
+            </label>
+          </div>
+          <div>
+            <input id="q<%=question.id%>-C" type="radio" name="<%=question.id%>" value="C">
+            <label for="q<%=question.id%>-C">
+              <%=question.C%>
+            </label>
+          </div>
+          <div>
+            <input id="q<%=question.id%>-D" type="radio" name="<%=question.id%>" value="D">
+            <label for="q<%=question.id%>-D">
+              <%=question.D%>
+            </label>
+          </div>
+        </li>
+        <% }) %>
+    </ul>
+  </main>
+
+</body>
+
+</html>
