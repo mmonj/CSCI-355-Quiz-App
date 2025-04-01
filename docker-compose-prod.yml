@@ -7,7 +7,7 @@ services:
     build:
       context: .
       args:
-        ENV_TYPE: dev
+        ENV_TYPE: prod
         UID: 1000
     command: >
       bash -c "
