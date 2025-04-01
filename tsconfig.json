@@ -21,5 +21,5 @@
       "allowJs": true,
       "checkJs": true
     },
-    "include": ["app.js", "src/"]
+    "include": ["app.js", "quiz_app"]
   }

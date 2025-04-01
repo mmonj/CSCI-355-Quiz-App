@@ -16,7 +16,7 @@ export function randNum(min, max) {
  * @returns {Promise<TQuestion[]>}
  */
 export async function getRandomQuestions(limit) {
-  const text = await readFile("src/data/questions.json", "utf-8");
+  const text = await readFile("quiz_app/data/questions.json", "utf-8");
 
   /**@type {TQuestion[]} */
   // @ts-ignore
@@ -40,7 +40,7 @@ export async function getRandomQuestions(limit) {
  * @returns {Promise<TQuestion[]>}
  */
 export async function getAllQuestions() {
-  const text = await readFile("src/data/questions.json", "utf-8");
+  const text = await readFile("quiz_app/data/questions.json", "utf-8");
   /**@type {TQuestionOriginal[]} */
   const allQuestions = JSON.parse(text);
   return allQuestions.map((question, idx) => {

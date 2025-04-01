@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import * as routes from "./src/routes/index.js";
+import * as routes from "./quiz_app/routes/index.js";
 
 const app = express();
 app.set("view engine", "ejs");
@@ -9,8 +9,8 @@ app.set("view engine", "ejs");
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.urlencoded({ extended: true }));
-app.set("views", path.join(__dirname, "src", "views"));
-app.use(express.static(path.join(__dirname, "src", "static")));
+app.set("views", path.join(__dirname, "quiz_app", "views"));
+app.use(express.static(path.join(__dirname, "quiz_app", "static")));
 
 app.get("/", routes.index);
 app.get("/quiz", routes.quiz);
