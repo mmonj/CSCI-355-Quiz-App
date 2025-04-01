@@ -27,52 +27,52 @@
       </p>
     </div>
 
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-numbered list-group-flush">
       <% questionResults.forEach(question=> { %>
-        <li class="list-group-item mb-3">
-          <h6>
-            <%= question.question %>
-          </h6>
-          <div class="mb-1 form-check">
-            <input id="q<%=question.id%>-A" type="radio" name="quiz[<%=question.id%>]" value="A"
-              class="form-check-input" disabled <%=question.answerGiven==="A" ? "checked" : "" %>>
-            <label for="q<%=question.id%>-A" class="form-label-label">
-              <%=question.A%>
-            </label>
-          </div>
-          <div class="mb-1 form-check">
-            <input id="q<%=question.id%>-B" type="radio" name="quiz[<%=question.id%>]" value="B"
-              class="form-check-input" disabled <%=question.answerGiven==="B" ? "checked" : "" %>>
-            <label for="q<%=question.id%>-B" class="form-label-label">
-              <%=question.B%>
-            </label>
-          </div>
-          <div class="mb-1 form-check">
-            <input id="q<%=question.id%>-C" type="radio" name="quiz[<%=question.id%>]" value="C"
-              class="form-check-input" disabled <%=question.answerGiven==="C" ? "checked" : "" %>>
-            <label for="q<%=question.id%>-C" class="form-label-label">
-              <%=question.C%>
-            </label>
-          </div>
-          <div class="mb-1 form-check">
-            <input id="q<%=question.id%>-D" type="radio" name="quiz[<%=question.id%>]" value="D"
-              class="form-check-input" disabled <%=question.answerGiven==="D" ? "checked" : "" %>>
-            <label for="q<%=question.id%>-D" class="form-label-label">
-              <%=question.D%>
-            </label>
-          </div>
+        <li class="mb-3 list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">
+              <%= question.question %>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-A" type="radio" name="quiz[<%=question.id%>]" value="A"
+                class="form-check-input" disabled <%=question.answerGiven==="A" ? "checked" : "" %>>
+              <label for="q<%=question.id%>-A" class="form-label-label">
+                <%=question.A%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-B" type="radio" name="quiz[<%=question.id%>]" value="B"
+                class="form-check-input" disabled <%=question.answerGiven==="B" ? "checked" : "" %>>
+              <label for="q<%=question.id%>-B" class="form-label-label">
+                <%=question.B%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-C" type="radio" name="quiz[<%=question.id%>]" value="C"
+                class="form-check-input" disabled <%=question.answerGiven==="C" ? "checked" : "" %>>
+              <label for="q<%=question.id%>-C" class="form-label-label">
+                <%=question.C%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-D" type="radio" name="quiz[<%=question.id%>]" value="D"
+                class="form-check-input" disabled <%=question.answerGiven==="D" ? "checked" : "" %>>
+              <label for="q<%=question.id%>-D" class="form-label-label">
+                <%=question.D%>
+              </label>
+            </div>
 
-          <% if (question.answer !==question.answerGiven) { %>
-            <p class="alert alert-warning my-3">
-              The correct answer was: <%= question.answer %>
-            </p>
-            <% } %>
+            <% if (question.answer !==question.answerGiven) { %>
+              <p class="alert alert-warning my-3">
+                The correct answer was: <%= question.answer %>
+              </p>
+              <% } %>
+
+          </div>
         </li>
         <% }) %>
-
-          <div class="text-center">
-            <a href="/quiz" class="btn btn-primary">Try again</a>
-          </div>
+    </ul>
   </main>
 
 </body>
