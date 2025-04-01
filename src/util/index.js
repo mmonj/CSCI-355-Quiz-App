@@ -24,6 +24,8 @@ export async function getRandomQuestions(limit) {
     return { ...question, id: idx };
   });
 
+  if (limit > allQuestions.length) limit = allQuestions.length;
+
   const indexes = new Set();
   while (indexes.size != limit) {
     indexes.add(randNum(0, allQuestions.length - 1));
