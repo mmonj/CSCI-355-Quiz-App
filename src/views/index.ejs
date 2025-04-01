@@ -10,20 +10,25 @@
 </head>
 
 <body>
+  <header>
+    <%- include("includes/navbar") %>
+  </header>
+
   <main class="mw-70-rem mx-auto p-3">
-    <div class="text-center my-3">
-      <h1>Welcome to the Quiz App!</h1>
-      <p>Test your knowledge by answering 10 questions and see how many you get correct!</p>
-      <a href="/quiz" class="btn btn-primary">Start Quiz</a>
+    <div class="text-center">
+      <h1 class="mb-3">Welcome to the Quiz App!</h1>
+      <p>
+        Test your knowledge by answering trivia questions and see how many you get correct!
+        <br>
+        Answer them as quickly as possible and getyour score at the end.
+      </p>
     </div>
 
-    <div>
-      <div class="text-center">
-        <h2>How it works</h2>
-        <p>Once you start the quiz, you will be presented with 10 questions. Answer them as quickly as possible and get
-          your score at the end.</p>
-      </div>
-    </div>
+    <form class="my-5" action="/quiz" method="GET">
+      <label class="form-label">How many questions do you wish to be presented with?</label>
+      <input type="number" class="form-control mb-2" name="num-questions" value="10">
+      <button type="submit" class="btn btn-primary">Start Quiz</button>
+    </form>
   </main>
 </body>
 
