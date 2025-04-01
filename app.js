@@ -3,6 +3,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import * as routes from "./quiz_app/routes/index.js";
 
+const PORT = process.env.EXPRESS_PORT || 3000;
+
 const app = express();
 app.set("view engine", "ejs");
 
@@ -16,6 +18,6 @@ app.get("/", routes.index);
 app.get("/quiz", routes.quiz);
 app.post("/quiz-result", routes.quizResult);
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("Server is live!");
 });
