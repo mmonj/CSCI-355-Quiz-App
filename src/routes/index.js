@@ -37,8 +37,6 @@ export const quizResult = async (req, res) => {
     });
   });
 
-  console.log(questionResults);
-
   res.render("quizResult", {
     questionResults,
     numQuestionsCorrect,
