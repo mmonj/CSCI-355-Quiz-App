@@ -13,39 +13,49 @@
 
   <main class="mw-70-rem mx-auto p-3">
     <h1 class="text-center mb-3">Quiz</h1>
-    <ul class="list-group list-group-flush">
-      <% questions.forEach(question=> { %>
-        <li class="list-group-item">
-          <h6>
-            <%= question.question %>
-          </h6>
-          <div>
-            <input id="q<%=question.id%>-A" type="radio" name="<%=question.id%>" value="A">
-            <label for="q<%=question.id%>-A">
-              <%=question.A%>
-            </label>
-          </div>
-          <div>
-            <input id="q<%=question.id%>-B" type="radio" name="<%=question.id%>" value="B">
-            <label for="q<%=question.id%>-B">
-              <%=question.B%>
-            </label>
-          </div>
-          <div>
-            <input id="q<%=question.id%>-C" type="radio" name="<%=question.id%>" value="C">
-            <label for="q<%=question.id%>-C">
-              <%=question.C%>
-            </label>
-          </div>
-          <div>
-            <input id="q<%=question.id%>-D" type="radio" name="<%=question.id%>" value="D">
-            <label for="q<%=question.id%>-D">
-              <%=question.D%>
-            </label>
-          </div>
-        </li>
-        <% }) %>
-    </ul>
+    <form action="/quiz-result" method="POST">
+      <ul class="list-group list-group-flush">
+        <% questions.forEach(question=> { %>
+          <li class="list-group-item mb-3">
+            <h6>
+              <%= question.question %>
+            </h6>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-A" type="radio" name="quiz[<%=question.id%>]" value="A"
+                class="form-check-input" required>
+              <label for="q<%=question.id%>-A" class="form-label-label">
+                <%=question.A%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-B" type="radio" name="quiz[<%=question.id%>]" value="B"
+                class="form-check-input" required>
+              <label for="q<%=question.id%>-B" class="form-label-label">
+                <%=question.B%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-C" type="radio" name="quiz[<%=question.id%>]" value="C"
+                class="form-check-input" required>
+              <label for="q<%=question.id%>-C" class="form-label-label">
+                <%=question.C%>
+              </label>
+            </div>
+            <div class="mb-1 form-check">
+              <input id="q<%=question.id%>-D" type="radio" name="quiz[<%=question.id%>]" value="D"
+                class="form-check-input" required>
+              <label for="q<%=question.id%>-D" class="form-label-label">
+                <%=question.D%>
+              </label>
+            </div>
+          </li>
+          <% }) %>
+      </ul>
+
+      <div class="my-3 text-center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </main>
 
 </body>

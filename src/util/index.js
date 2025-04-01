@@ -15,7 +15,7 @@ export function randNum(min, max) {
  * @param {number} limit
  * @returns {Promise<TQuestion[]>}
  */
-export async function getQuestions(limit) {
+export async function getRandomQuestions(limit) {
   const text = await readFile("src/data/questions.json", "utf-8");
 
   /**@type {TQuestion[]} */
@@ -32,4 +32,16 @@ export async function getQuestions(limit) {
   const questions = allQuestions.filter((_, idx) => indexes.has(idx));
 
   return questions;
+}
+
+/**
+ * @returns {Promise<TQuestion[]>}
+ */
+export async function getAllQuestions() {
+  const text = await readFile("src/data/questions.json", "utf-8");
+  /**@type {TQuestionOriginal[]} */
+  const allQuestions = JSON.parse(text);
+  return allQuestions.map((question, idx) => {
+    return { ...question, id: idx };
+  });
 }

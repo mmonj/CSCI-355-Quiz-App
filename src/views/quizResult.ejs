@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%- include("includes/common-imports") %>
+    <title>Quiz Result</title>
+</head>
+
+<body>
+
+  <main class="mw-70-rem mx-auto p-3">
+
+    <h1 class="text-center mb-3">Quiz Results</h1>
+
+    <div class="alert alert-info">
+      <p>
+        Your Score: <%=percentageScore%> %
+      </p>
+      <p>
+        You got <%=numQuestionsCorrect%> question(s) correct out of <%= questionResults.length %>
+      </p>
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <% questionResults.forEach(question=> { %>
+        <li class="list-group-item mb-3">
+          <h6>
+            <%= question.question %>
+          </h6>
+          <div class="mb-1 form-check">
+            <input id="q<%=question.id%>-A" type="radio" name="quiz[<%=question.id%>]" value="A"
+              class="form-check-input" disabled <%=question.answerGiven==="A" ? "checked" : "" %>>
+            <label for="q<%=question.id%>-A" class="form-label-label">
+              <%=question.A%>
+            </label>
+          </div>
+          <div class="mb-1 form-check">
+            <input id="q<%=question.id%>-B" type="radio" name="quiz[<%=question.id%>]" value="B"
+              class="form-check-input" disabled <%=question.answerGiven==="B" ? "checked" : "" %>>
+            <label for="q<%=question.id%>-B" class="form-label-label">
+              <%=question.B%>
+            </label>
+          </div>
+          <div class="mb-1 form-check">
+            <input id="q<%=question.id%>-C" type="radio" name="quiz[<%=question.id%>]" value="C"
+              class="form-check-input" disabled <%=question.answerGiven==="C" ? "checked" : "" %>>
+            <label for="q<%=question.id%>-C" class="form-label-label">
+              <%=question.C%>
+            </label>
+          </div>
+          <div class="mb-1 form-check">
+            <input id="q<%=question.id%>-D" type="radio" name="quiz[<%=question.id%>]" value="D"
+              class="form-check-input" disabled <%=question.answerGiven==="D" ? "checked" : "" %>>
+            <label for="q<%=question.id%>-D" class="form-label-label">
+              <%=question.D%>
+            </label>
+          </div>
+
+          <% if (question.answer !==question.answerGiven) { %>
+            <p class="alert alert-warning my-3">
+              The correct answer was: <%= question.answer %>
+            </p>
+            <% } %>
+        </li>
+        <% }) %>
+
+          <div class="text-center">
+            <a href="/quiz" class="btn btn-primary">Try again</a>
+          </div>
+  </main>
+
+</body>
+
+</html>
