@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  express_app:
+    image: mm-express-app-image
+    container_name: mm-express-app
+    build:
+      context: .
+      args:
+        ENV_TYPE: dev
+        UID: 1000
+    command: >
+      bash -c "
+      trap 'echo SIGTERM received, shutting down...; exit' SIGTERM;
+      while true; do
+        sleep 1;
+      done
+      "
+    tty: true
+    user: "1000"
+    volumes:
+      - /app/node_modules
+      - ./:/app
+    environment:
+      - EXPRESS_PORT=3000
+    restart: unless-stopped
+  
+networks:
+  caddy_net:
+    external: true
