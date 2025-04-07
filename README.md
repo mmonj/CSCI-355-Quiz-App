@@ -8,7 +8,7 @@
 
 ### Deployment Details
 
-- Deployed web application using Docker, in conjunction with the Caddy web proxy server and Cloudflare
+- Deployed web application in a Linux VPS, using Docker in conjunction with the Caddy web proxy server and Cloudflare
 
 ### How to run server
 
