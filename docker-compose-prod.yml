@@ -9,13 +9,7 @@ services:
       args:
         ENV_TYPE: prod
         UID: 1000
-    command: >
-      bash -c "
-      trap 'echo SIGTERM received, shutting down...; exit' SIGTERM;
-      while true; do
-        sleep 1;
-      done
-      "
+    command: node app.js
     tty: true
     user: "1000"
     volumes:
@@ -23,7 +17,10 @@ services:
       - ./:/app
     environment:
       - EXPRESS_PORT=3000
+      - NODE_ENV=production
     restart: unless-stopped
+    networks:
+      - caddy_net
   
 networks:
   caddy_net:
