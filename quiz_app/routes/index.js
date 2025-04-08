@@ -7,8 +7,10 @@ export const index = (_req, res) => {
 
 /** @type {AsyncRequestHandler} */
 export const quiz = async (req, res) => {
-  const numQuestions = /**@type {string} */ (req.query["num-questions"]);
-  const questions = await getRandomQuestions(Number.parseInt(numQuestions));
+  let numQuestions = Number.parseInt(req.query["num-questions"]);
+  if (numQuestions <= 0) numQuestions = 1;
+  
+  const questions = await getRandomQuestions(numQuestions);
 
   res.render("quiz", { questions });
 };
