@@ -19,4 +19,4 @@
 ### Participating Team Members
 
 - Mauricio Monje
-  - Role: Implementing the backend and frontend; deploying server to the internet
+  - Role: Designing and building both the backend and frontend, as well as deploying the server to a live environment.
